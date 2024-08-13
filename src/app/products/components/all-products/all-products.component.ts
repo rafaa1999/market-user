@@ -38,4 +38,21 @@ export class AllProductsComponent implements OnInit {
       }
     );
   }
+
+  filterProducts(event: any) {
+    let value = event.target.value;
+    (value == 'all') ? this.getProducts() : this.getProductsByCategory(value);
+  }
+
+  getProductsByCategory(value: any) {
+    this.service.getProductsByCategory(value).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.products = res;
+      },
+      (err) => {
+        alert(err);
+      }
+    );
+  }
 }
