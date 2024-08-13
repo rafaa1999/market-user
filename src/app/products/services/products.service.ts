@@ -12,4 +12,7 @@ export class ProductsService {
     return this.http.get(environment.baseApi + 'products');
   }
 
+  getAllCategories() {
+    return this.http.get(environment.baseApi +'products/categories')
+  }
 }

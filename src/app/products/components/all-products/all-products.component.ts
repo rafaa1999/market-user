@@ -8,17 +8,18 @@ import { ProductsService } from '../../services/products.service';
 })
 export class AllProductsComponent implements OnInit {
   products: any[] = [];
+  categories: string[] = [];
 
   constructor(private service: ProductsService) {}
 
   ngOnInit(): void {
     this.getProducts();
+    this.getCategories();
   }
 
   getProducts() {
     this.service.getAllProducts().subscribe(
       (res: any) => {
-        console.log(res);
         this.products = res;
       },
       (error) => {
@@ -27,4 +28,14 @@ export class AllProductsComponent implements OnInit {
     );
   }
 
+  getCategories() {
+    this.service.getAllCategories().subscribe(
+      (res: any) => {
+        this.categories = res;
+      },
+      (error) => {
+        alert(error);
+      }
+    );
+  }
 }
