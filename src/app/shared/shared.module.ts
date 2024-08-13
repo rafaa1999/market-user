@@ -6,9 +6,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SelectComponent } from './components/select/select.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
-  declarations: [HeaderComponent, SelectComponent],
+  declarations: [HeaderComponent, SelectComponent, SpinnerComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -22,6 +23,7 @@ import { SelectComponent } from './components/select/select.component';
     SelectComponent,
     RouterModule,
     FormsModule,
+    SpinnerComponent
   ],
 })
 export class SharedModule {}
