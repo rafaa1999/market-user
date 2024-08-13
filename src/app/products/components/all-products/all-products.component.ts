@@ -39,7 +39,7 @@ export class AllProductsComponent implements OnInit {
     );
   }
 
-  filterProducts(event: any) {
+  filterCategory(event: any) {
     let value = event.target.value;
     (value == 'all') ? this.getProducts() : this.getProductsByCategory(value);
   }
