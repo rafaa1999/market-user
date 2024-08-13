@@ -7,10 +7,24 @@ import { ProductsService } from '../../services/products.service';
   styleUrls: ['./all-products.component.scss'],
 })
 export class AllProductsComponent implements OnInit {
+  products: any[] = [];
 
-  constructor() {}
+  constructor(private service: ProductsService) {}
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts() {
+    this.service.getAllProducts().subscribe(
+      (res: any) => {
+        console.log(res);
+        this.products = res;
+      },
+      (error) => {
+        alert(error);
+      }
+    );
   }
 
 }
