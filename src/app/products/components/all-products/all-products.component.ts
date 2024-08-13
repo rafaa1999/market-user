@@ -10,6 +10,7 @@ export class AllProductsComponent implements OnInit {
   products: any[] = [];
   categories: string[] = [];
   loading: boolean = false;
+  cartProducts:any[] = []
 
   constructor(private service: ProductsService) {}
 
@@ -63,5 +64,21 @@ export class AllProductsComponent implements OnInit {
         alert(err);
       }
     );
+  }
+
+  addToCart(event:any) {
+    if("cart" in localStorage) {
+      this.cartProducts = JSON.parse(localStorage.getItem("cart")!)
+      let exist = this.cartProducts.find(item => item.item.id == event.item.id)
+      if(exist) {
+        alert("Product is already in your cart")
+      }else {
+        this.cartProducts.push(event)
+        localStorage.setItem("cart" , JSON.stringify(this.cartProducts))
+      }
+    } else {
+      this.cartProducts.push(event)
+      localStorage.setItem("cart" , JSON.stringify(this.cartProducts))
+    }
   }
 }
