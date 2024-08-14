@@ -41,4 +41,9 @@ export class CartComponent implements OnInit {
     this.getCartTotal();
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }
+
+  detectChange() {
+    this.getCartTotal()
+    localStorage.setItem("cart" , JSON.stringify(this.cartProducts))
+  }
 }
