@@ -25,9 +25,9 @@
         <td>{{ item.item.price }} L.E</td>
         <td>
           <div class="quantity">
-            <button class="btn btn-dark">+</button>
+            <button class="btn btn-dark" (click)="addAmount(index)">+</button>
             <input class="form-control" type="number" [(ngModel)]="item.quantity" min="1" />
-            <button class="btn btn-dark">-</button>
+            <button class="btn btn-dark" (click)="minsAmount(index)">-</button>
           </div>
         </td>
         <td>{{ item.item.price * item.quantity }} L.E</td>
