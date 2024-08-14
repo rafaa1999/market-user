@@ -47,8 +47,14 @@ export class CartComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(this.cartProducts));
   }
 
-  deleteProduct(index:number) {
-    this.cartProducts.splice(index , 1)
+  deleteProduct(index: number) {
+    this.cartProducts.splice(index, 1);
+    this.getCartTotal();
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+  }
+
+  clearCart() {
+    this.cartProducts = []
     this.getCartTotal()
     localStorage.setItem("cart" , JSON.stringify(this.cartProducts))
   }
