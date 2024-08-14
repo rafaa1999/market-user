@@ -43,6 +43,12 @@ export class CartComponent implements OnInit {
   }
 
   detectChange() {
+    this.getCartTotal();
+    localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+  }
+
+  deleteProduct(index:number) {
+    this.cartProducts.splice(index , 1)
     this.getCartTotal()
     localStorage.setItem("cart" , JSON.stringify(this.cartProducts))
   }

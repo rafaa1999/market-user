@@ -38,7 +38,9 @@
         </td>
         <td>{{ item.item.price * item.quantity }} L.E</td>
         <td>
-          <button class="btn btn-danger">Delete</button>
+          <button class="btn btn-danger" (click)="deleteProduct(index)">
+            Delete
+          </button>
         </td>
       </tr>
     </tbody>
